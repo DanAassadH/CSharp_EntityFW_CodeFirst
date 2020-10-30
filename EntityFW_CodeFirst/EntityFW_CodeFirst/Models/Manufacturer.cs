@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace EntityFW_CodeFirst.Models
 {
-    [Table("vehicle")]
-    class Vehicle
+    [Table("manufacturer")]
+    class Manufacturer
     {
         [Key]
         [Column(TypeName = "int(10)")]
@@ -15,15 +15,6 @@ namespace EntityFW_CodeFirst.Models
         public int ID { get; set; }
 
         [Column(TypeName = "varchar(30)")]
-        public string Manufacturer { get; set; }
-
-        [Column(TypeName = "varchar(30)")]
-        public string Model { get; set; }
-
-        [Column(TypeName = "int(10)")]
-        public int ModelYear { get; set; }
-
-        [Column(TypeName = "varchar(30)")]
-        public string Colour { get; set; }
+        public string Name { get; set; }
     }
 }
