@@ -9,6 +9,11 @@ namespace EntityFW_CodeFirst.Models
     [Table("manufacturer")]
     class Manufacturer
     {
+        public Manufacturer()
+        {
+            Vehicles = new HashSet<Vehicle>();
+        }
+
         [Key]
         [Column(TypeName = "int(10)")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -16,5 +21,8 @@ namespace EntityFW_CodeFirst.Models
 
         [Column(TypeName = "varchar(30)")]
         public string Name { get; set; }
+
+        [InverseProperty(nameof(Models.Vehicle.Manufacturer))]
+        public virtual ICollection<Vehicle> Vehicles { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,8 +15,8 @@ namespace EntityFW_CodeFirst.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
-        [Column(TypeName = "varchar(30)")]
-        public string Manufacturer { get; set; }
+        [Column(TypeName = "int(10)")]
+        public int ManufacturerID { get; set; }
 
         [Column(TypeName = "varchar(30)")]
         public string Model { get; set; }
@@ -25,5 +26,9 @@ namespace EntityFW_CodeFirst.Models
 
         [Column(TypeName = "varchar(30)")]
         public string Colour { get; set; }
+
+        [ForeignKey(nameof(ManufacturerID))] 
+        [InverseProperty(nameof(Models.Manufacturer.Vehicles))]
+        public virtual Manufacturer Manufacturer { get; set; }
     }
 }

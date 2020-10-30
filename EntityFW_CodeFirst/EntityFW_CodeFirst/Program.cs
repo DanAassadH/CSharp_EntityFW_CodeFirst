@@ -11,6 +11,11 @@ namespace EntityFW_CodeFirst
             //dotnet ef migrations add InitialMigration
 
             //dotnet ef database update
+
+            //after adding manufacturer table
+            //dotnet ef migrations add ManufacturerTable
+            //dotnet ef database update
+
             Console.WriteLine("Hello World!");
         }
     }
